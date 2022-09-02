@@ -52,7 +52,9 @@ const priceData = async() => {
 }
 
 
-
+app.get("/", (req, res) => {
+    res.send(`<h1>Coin-Prices API</h1>`)
+})
 
 
 
