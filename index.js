@@ -64,7 +64,7 @@ app.get("/api/coins-prices", async(req, res) => {
     try {
         const prices = await priceData()
         res.status(200).json({ result: coinPrices })
-            // res.status(200).json({ msg: "prices" })
+
     } catch (error) {
         console.log(error.message)
     }
