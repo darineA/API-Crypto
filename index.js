@@ -70,6 +70,19 @@ app.get("/api/coins-prices", async(req, res) => {
     }
 })
 
+app.get("/api/coins-prices/:coinId", async(req, res) => {
+    const coinId = req.params.coinId
+    try {
+        const { data } = await axios.get("https://coinpricesapi.herokuapp.com/api/coins-prices")
+        const wanted = data.result
+        const coin = wanted.filter((ele) => ele.name === coinId)
+        res.status(200).json({ count: coin.length, coin })
+
+
+    } catch (error) {
+        console.log(error.message)
+    }
+})
 
 
 const run = async() => {
