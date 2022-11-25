@@ -32,6 +32,7 @@ const priceData = async() => {
                         // if (arrayIndex === 0) {
                         //     info = $('.profile__rank', $(ele).html()).text().trim()
                         // }
+                        //
                     if (arrayIndex === 0) {
                         info = $('.profile__link', $(ele).html()).text().trim()
                     }
@@ -77,7 +78,6 @@ app.get("/api/coins-prices/:coinId", async(req, res) => {
         const wanted = data.result
         const coin = wanted.filter((ele) => ele.name === coinId)
         res.status(200).json({ count: coin.length, coin })
-
 
     } catch (error) {
         console.log(error.message)
